@@ -11,8 +11,7 @@
 	<form method = "post" action = "viewAllTeamServlet">
 		<table>
 			<c:forEach items="${requestScope.allItems}" var="currentitem">
-				<tr>
-					<td><input type="radio" name="id" value="${currentitem.teamId}"></td>
+				<tr> 
 					<td>${currentitem.teamName}</td>
 					<td>${currentitem.teamType}</td>
 					<td>${currentitem.preferredNight}</td> 

@@ -24,27 +24,16 @@ public class Player {
 	private String phoneNumber;
 	@Column(name="screenName")
 	private String screenName;
-	//@ManyToOne
-	//@JoinColumn(name = "teamId")
-	//private Team teamId;
-	@Column(name="teamId")
-	private int teamId;
+	@ManyToOne
+	@JoinColumn(name = "teamId")
+	private Team teamId; 
 		
 	public Player() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	//public Player(int playerId, String firstName, String lastName, String phoneNumber, String screenName, Team teamId) {
-	//	super();
-	//	this.playerId = playerId;
-	//	this.firstName = firstName;
-	//	this.lastName = lastName;
-	//	this.phoneNumber = phoneNumber;
-	//	this.screenName = screenName;
-	//	this.teamId = teamId;
-	//}
-	public Player(int playerId, String firstName, String lastName, String phoneNumber, String screenName, int teamId) {
+	public Player(int playerId, String firstName, String lastName, String phoneNumber, String screenName, Team teamId) {
 		super();
 		this.playerId = playerId;
 		this.firstName = firstName;
@@ -53,15 +42,8 @@ public class Player {
 		this.screenName = screenName;
 		this.teamId = teamId;
 	}
-	//public Player(String firstName, String lastName, String phoneNumber, String screenName, Team teamId) {
-	//	super();
-	//	this.firstName = firstName;
-	//	this.lastName = lastName;
-	//	this.phoneNumber = phoneNumber;
-	//	this.screenName = screenName;
-	//	this.setTeamId(teamId);
-	//}
-	public Player(String firstName, String lastName, String phoneNumber, String screenName, int teamId) {
+ 
+	public Player(String firstName, String lastName, String phoneNumber, String screenName, Team teamId) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -69,6 +51,7 @@ public class Player {
 		this.screenName = screenName;
 		this.teamId = teamId;
 	}
+ 
 	public Player(String firstName, String lastName, String phoneNumber, String screenName) {
 		super();
 		this.firstName = firstName;
@@ -78,7 +61,6 @@ public class Player {
 		
 	}
 	
-
 	public Player(int playerId, String firstName, String lastName, String phoneNumber, String screenName) {
 		super();
 		this.playerId = playerId;
@@ -127,22 +109,14 @@ public class Player {
 	public void setScreenName(String screenName) {
 		this.screenName = screenName;
 	}
-
-	public Object getTeamId() {
+	
+	public Team getTeamId() {
 		return teamId;
 	}
-
-	public void setTeamId(int teamId) {
+	
+	public void setTeamId(Team teamId) {
 		this.teamId = teamId;
 	}
-	
-	//public Team getTeamId() {
-	//	return teamId;
-	//}
-	
-	//public void setTeamId(Team teamId) {
-	//	this.teamId = teamId;
-	//}
 	@Override
 	public String toString() {
 		return "Player [playerId=" + playerId + ", firstName=" + firstName + ", lastName=" + lastName + ", phoneNumber="

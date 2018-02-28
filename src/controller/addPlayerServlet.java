@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.PlayerHelper;
+import controller.TeamHelper;
 import model.Player;
 import model.Team;
 
@@ -26,14 +28,6 @@ public class addPlayerServlet extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	//protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	//	response.getWriter().append("Served at: ").append(request.getContextPath());
-	//}
-
-	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,16 +35,17 @@ public class addPlayerServlet extends HttpServlet {
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName"); 
 		String phoneNumber = request.getParameter("phoneNumber"); 
-		String screenName = request.getParameter("screenName"); 
-		String teamIdStr = request.getParameter("teamId");  
-		int teamId=Integer.parseInt(teamIdStr);  
-		//Object teamId = teamIdStr;
-		//Team teamId = teamIdStr;
-		//Team<?> teamId = Team.forName(teamIdStr);
-		Player li = new Player(firstName,lastName,phoneNumber,screenName,teamId);
-		//Player li = new Player(firstName,lastName,phoneNumber,screenName);
-		PlayerHelper dao = new PlayerHelper();
-		dao.insertItem(li);
+		String screenName = request.getParameter("screenName");
+		String teamName = request.getParameter("teamName"); 
+		TeamHelper th = new TeamHelper(); 
+		//if(th.findTeamByName(teamName)==null) {
+		//	teamId = new Team(teamName);
+		//	th.insertTeam(teamId);
+		//}else {
+		Team teamId = th.findTeamByName(teamName);
+		//}
+		Player player = new Player(firstName, lastName, phoneNumber, screenName, teamId); 		PlayerHelper dao = new PlayerHelper();
+		dao.insertItem(player);
 
 		getServletContext().getRequestDispatcher("/addPlayer.html").forward(request, response);
 	}

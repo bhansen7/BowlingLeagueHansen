@@ -11,8 +11,7 @@
 	<form method = "post" action = "viewAllPlayerServlet">
 		<table>
 			<c:forEach items="${requestScope.allItems}" var="currentitem">
-				<tr>
-					<td><input type="radio" name="id" value="${currentitem.playerId}"></td>
+				<tr> 
 					<td>${currentitem.firstName}</td>
 					<td>${currentitem.lastName}</td>
 					<td>${currentitem.phoneNumber}</td> 					

@@ -29,7 +29,6 @@ public class Team {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
 	public Team(String teamName, String teamType, String preferredNight) {
 		super();
 		this.teamName = teamName;
@@ -37,13 +36,14 @@ public class Team {
 		this.preferredNight = preferredNight;
 	}
 
+	public Team(String teamName) {
+		this.setTeamName(teamName);
+	}
 
 	public int getTeamId() {
 		return teamId;
 	}
-	//public void setTeamId(int teamId) {
-	//	this.teamId = teamId;
-	//}
+	 
 	public String getTeamName() {
 		return teamName;
 	}
