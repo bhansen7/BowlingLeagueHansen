@@ -38,16 +38,17 @@ public class addPlayerServlet extends HttpServlet {
 		String screenName = request.getParameter("screenName");
 		String teamName = request.getParameter("teamName"); 
 		TeamHelper th = new TeamHelper(); 
-		//if(th.findTeamByName(teamName)==null) {
-		//	teamId = new Team(teamName);
-		//	th.insertTeam(teamId);
-		//}else {
-		Team teamId = th.findTeamByName(teamName);
-		//}
-		Player player = new Player(firstName, lastName, phoneNumber, screenName, teamId); 		PlayerHelper dao = new PlayerHelper();
-		dao.insertItem(player);
-
-		getServletContext().getRequestDispatcher("/addPlayer.html").forward(request, response);
+		Team teamId;
+		if(th.findTeamByName(teamName)==null) {
+			//call error page
+			getServletContext().getRequestDispatcher("/PlayerError.jsp").forward(request, response); 
+		}else {
+		    teamId = th.findTeamByName(teamName);
+		    Player player = new Player(firstName, lastName, phoneNumber, screenName, teamId); 		PlayerHelper dao = new PlayerHelper();
+			dao.insertItem(player);
+			getServletContext().getRequestDispatcher("/addPlayer.html").forward(request, response);
+		}
+		
 	}
 
 }
