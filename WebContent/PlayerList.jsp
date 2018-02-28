@@ -8,17 +8,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method = "post" action = "viewAllTeamServlet">
+	<form method = "post" action = "viewAllPlayerServlet">
 		<table>
 			<c:forEach items="${requestScope.allItems}" var="currentitem">
 				<tr>
-					<td><input type="radio" name="id" value="${currentitem.teamId}"></td>
-					<td>${currentitem.teamName}</td>
-					<td>${currentitem.teamType}</td>
-					<td>${currentitem.preferredNight}</td> 
+					<td><input type="radio" name="id" value="${currentitem.playerId}"></td>
+					<td>${currentitem.firstName}</td>
+					<td>${currentitem.lastName}</td>
+					<td>${currentitem.phoneNumber}</td> 					
+					<td>${currentitem.screenName}</td> 					
+					<td>${currentitem.teamId}</td> 
 				</tr>
 			</c:forEach>
-		</table>   
+		</table>  
 		<a href = "index.html">Return to Main Menu</a> <br /> 
 	</form> 
 	

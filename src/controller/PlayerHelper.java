@@ -9,10 +9,13 @@ import javax.persistence.TypedQuery;
 
 import model.Player;
 
+
 public class PlayerHelper {
 EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("BowlingLeagueHansen");
 	
 	public void insertItem(Player toAdd) {
+		// TODO Auto-generated method stub
+
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(toAdd);
@@ -53,4 +56,5 @@ EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Bowling
 		em.close();
 		return foundItem; 
 	}
+
 }

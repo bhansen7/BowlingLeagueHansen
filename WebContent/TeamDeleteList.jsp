@@ -8,18 +8,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method = "post" action = "viewAllTeamServlet">
+	<form method = "post" action = "deleteTeamServlet">
 		<table>
 			<c:forEach items="${requestScope.allItems}" var="currentitem">
 				<tr>
-					<td><input type="radio" name="id" value="${currentitem.teamId}"></td>
+					<td><input type="radio" name="teamId" value="${currentitem.teamId}"></td>
 					<td>${currentitem.teamName}</td>
 					<td>${currentitem.teamType}</td>
 					<td>${currentitem.preferredNight}</td> 
 				</tr>
 			</c:forEach>
 		</table>   
-		<a href = "index.html">Return to Main Menu</a> <br /> 
+		<input type="submit" value="Delete Selected Team" name="doThisToItem">
 	</form> 
 	
 </body>

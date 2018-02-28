@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -33,6 +35,15 @@ public class Player {
 		// TODO Auto-generated constructor stub
 	}
 
+	//public Player(int playerId, String firstName, String lastName, String phoneNumber, String screenName, Team teamId) {
+	//	super();
+	//	this.playerId = playerId;
+	//	this.firstName = firstName;
+	//	this.lastName = lastName;
+	//	this.phoneNumber = phoneNumber;
+	//	this.screenName = screenName;
+	//	this.teamId = teamId;
+	//}
 	public Player(int playerId, String firstName, String lastName, String phoneNumber, String screenName, int teamId) {
 		super();
 		this.playerId = playerId;
@@ -42,7 +53,14 @@ public class Player {
 		this.screenName = screenName;
 		this.teamId = teamId;
 	}
-	
+	//public Player(String firstName, String lastName, String phoneNumber, String screenName, Team teamId) {
+	//	super();
+	//	this.firstName = firstName;
+	//	this.lastName = lastName;
+	//	this.phoneNumber = phoneNumber;
+	//	this.screenName = screenName;
+	//	this.setTeamId(teamId);
+	//}
 	public Player(String firstName, String lastName, String phoneNumber, String screenName, int teamId) {
 		super();
 		this.firstName = firstName;
@@ -51,7 +69,6 @@ public class Player {
 		this.screenName = screenName;
 		this.teamId = teamId;
 	}
-
 	public Player(String firstName, String lastName, String phoneNumber, String screenName) {
 		super();
 		this.firstName = firstName;
@@ -118,11 +135,17 @@ public class Player {
 	public void setTeamId(int teamId) {
 		this.teamId = teamId;
 	}
-
+	
+	//public Team getTeamId() {
+	//	return teamId;
+	//}
+	
+	//public void setTeamId(Team teamId) {
+	//	this.teamId = teamId;
+	//}
 	@Override
 	public String toString() {
 		return "Player [playerId=" + playerId + ", firstName=" + firstName + ", lastName=" + lastName + ", phoneNumber="
 				+ phoneNumber + ", screenName=" + screenName + ", teamId=" + teamId + "]";
 	}
 }
-

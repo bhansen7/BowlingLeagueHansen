@@ -31,39 +31,29 @@ EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Bowling
 		return allItems;
 	}
 
-	//public void deleteItem(Team toDelete) {
+	public void deleteTeam(Team toDelete) {
 		// TODO Auto-generated method stub
-	//	EntityManager em = emfactory.createEntityManager();
-	//	em.getTransaction().begin();
-	//	TypedQuery<Team> typedQuery = em.createQuery(
-	//			"select li from Team li where li.id = :selectedId",
-	//			Team.class);
-	//	typedQuery.setParameter("selectedId", toDelete.getId());
-	//	typedQuery.setMaxResults(1);
-	//	Team result = typedQuery.getSingleResult(); 
-	//	em.remove(result);
-	//	em.getTransaction().commit();
-	//	em.close();
-	//}
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<Team> typedQuery = em.createQuery(
+				"select li from Team li where li.teamId = :selectedId",
+				Team.class);
+		typedQuery.setParameter("selectedId", toDelete.getTeamId());
+		typedQuery.setMaxResults(1);
+		Team result = typedQuery.getSingleResult(); 
+		em.remove(result);
+		em.getTransaction().commit();
+		em.close();
+	}
 	
 
-	//public Team searchForItemById(int idToEdit) {
+	public Team searchForTeamById(int idToEdit) {
 		// TODO Auto-generated method stub
-	//	EntityManager em = emfactory.createEntityManager();
-	//	em.getTransaction().begin();
-	//	Team foundItem =  em.find(Team.class, idToEdit);
-	//	em.close();
-	//	return foundItem; 
-	//}
-
-	//public void updateItem(Team toEdit) {
-		// TODO Auto-generated method stub
-	//	EntityManager em = emfactory.createEntityManager();
-	//	em.getTransaction().begin(); 
-	//	em.merge(toEdit);
-	//	em.getTransaction().commit();
-	//	em.close();
-	// 
-	//}
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		Team foundItem =  em.find(Team.class, idToEdit);
+		em.close();
+		return foundItem; 
+	}
 
 }

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Bowling League</title>
+<title>Bowling League version 2</title>
 </head>
 <body>
 
